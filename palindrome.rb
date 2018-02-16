@@ -8,43 +8,33 @@
 # Make sure your palindrome checker is case insensitive
 # Push it to your github to help build your resume
 # Use a gem like colorize or something else to make the script more fun and interactive to use
-
+intro = ""
 @quitting = false
 def start
+  puts "Type in a word or phrase to check if it's a palindrome.  Type done to quit."
   until @quitting == true
-
-    puts "Type in a word or phrase to check if it's a palindrome.  Type done to quit."
-
-    @input = gets.strip.downcase.gsub(/\s+/, "")
-    # puts @input
+    @orig_input = gets.strip
+    @input = @orig_input.downcase.gsub(/\s+/, "")
     if  (@input.include? 'done') || (@input.include? 'quit')
       @quitting = true
       exit(0)
     else
-
-
-      @array << @input.scan(/\w/)
-      slength = @input.length
-      puts slength
-      #
-      # puts @array.join(', ')
-      # puts @array
-      # puts @array.join(', ')
+      @array = @input.scan(/\w/)
       i = 0
-      puts something
-      until i == slength
-        # last_thing =
-        # puts last_thing
-        # puts "#{i} #{last_thing}"
-        something = @array.last
+      something = []
+      until i == @input.length
+        something << @array.last
         @array.pop
-
-        # puts "something #{something}"
         i += 1
       end
-
-
+      backwards = something.join('')
+      if backwards == @input
+        puts "Nice, #{@orig_input} is a palindrome."
+      else
+        puts "Nope, #{@orig_input} backwards is #{backwards}."
+      end
     end
+    puts "Type something else to check :"
   end
 end
 
