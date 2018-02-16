@@ -22,31 +22,28 @@ def start
       exit(0)
     else
 
-      @array = []
 
       @array << @input.scan(/\w/)
       slength = @input.length
       puts slength
-      puts @array
-      puts @array.join(', ')
+      #
+      # puts @array.join(', ')
       # puts @array
       # puts @array.join(', ')
-
-
       i = 0
-      something = []
+      puts something
       until i == slength
-        last_thing = @array.last
-        puts last_thing
-        puts "#{i} #{last_thing}"
-        something << last_thing
+        # last_thing =
+        # puts last_thing
+        # puts "#{i} #{last_thing}"
+        something = @array.last
         @array.pop
 
-        puts "something #{something}"
+        # puts "something #{something}"
         i += 1
       end
 
-      
+
     end
   end
 end
